@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.rpg.etheria.chronicles;
+package com.mycompany.RPGEtheriaChronicles;
 
 import java.util.Scanner;
 
@@ -12,18 +12,34 @@ import java.util.Scanner;
  */
 
 public class Player extends Character {
-    private String race;
-    private int experience;
+    String race;
+    int level;
 
     private Scanner scanner = new Scanner(System.in);
 
     public Player(String name, int health, int attack, int defense, int level, String race) {
         super(name, health, attack, defense, level);
         this.race = race;
-
-        abilities.add(new Attack("Esquivada y defensa", 3, 0.2));
-        abilities.add(new Attack("Golpe fuerte", 15, 0.1));
-        abilities.add(new Attack("Golpe rápido", 6, 0.35));
+        this.level = level;
+        
+        abilities.add(new Attack(
+            "Esquivada y estocada",
+            4,
+            0.2,
+            "se lanza rápidamente hacia un lado!"
+        ));
+        abilities.add(new Attack(
+            "Golpe fuerte",
+            15,
+            0.35,
+            "arremete y lanza un gran ataque!"
+        ));
+        abilities.add(new Attack(
+            "Golpe rápido",
+            8,
+            0.25,
+            "avanza ferozmente!"
+        ));
     }
 
     public void levelUp() {
@@ -43,7 +59,7 @@ public class Player extends Character {
 
         int choice = scanner.nextInt();
         
-        if(choice > abilities.size()) {
+        if(choice > abilities.size() || choice < 1) {
             System.out.println("\nAún no has aprendido este ataque, elige otro!");
             return chooseAbility();
         } else {

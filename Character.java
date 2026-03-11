@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.rpg.etheria.chronicles;
+package com.mycompany.RPGEtheriaChronicles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,7 @@ public abstract class Character {
     public void takeDamage(int damage) {
         int finalDamage = Math.max(0, damage - defense);
         health -= finalDamage;
+        health = Math.max(0, health);
 
         System.out.println(name + " recibe " + finalDamage + " de daño! (HP: " + health + ")");
     }

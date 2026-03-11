@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.rpg.etheria.chronicles;
+package com.mycompany.RPGEtheriaChronicles;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -28,11 +28,17 @@ public class GameEngine {
         System.out.println("++++++++++++++++++++++++++++");
         System.out.println("""
                            En tiempos antiguos los seres luchaban por 
-                            obtener riquezas, gloria y simples recursos para sobrevivir.
+                           obtener riquezas, gloria o tan solo simples recursos para sobrevivir.
                            Ellos lideraban grandes batallas día tras día ante amenazas y adversidades.""");
 
         Player player = chooseCharacter();
         Enemy enemy = createRandomEnemy();
+        
+        System.out.println("\n" + player.name + ". Inicias tu camino como un " + player.race +
+                        "\nHP: " + player.health +
+                        "\nDefensa: " + player.defense +
+                        "\nAtaque: " + player.attack +
+                        "\nNivel: " + player.level);
 
         Battle battle = new Battle(player, enemy);
         battle.startBattle();
@@ -72,6 +78,8 @@ public class GameEngine {
     }
 
     public void endGame() {
-        System.out.println("\n=== Esta aventura termina por hoy. ===");
+        System.out.println("\n=== Esta aventura termina por hoy. Ahora descansa y recupérate. ===");
+        System.out.println("\n.\n.\n.\nA lo lejos escuchas otro sonido...");
+        System.exit(0);
     }
 }

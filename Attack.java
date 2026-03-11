@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.rpg.etheria.chronicles;
+package com.mycompany.RPGEtheriaChronicles;
 
 import java.util.Random;
 
@@ -14,21 +14,15 @@ import java.util.Random;
 public class Attack extends Ability {
     private int damage;
     private double criticalChance;
+    private String message;
 
     private Random random = new Random();
 
-    private String[] attackMessages = {
-            "ataca ferozmente!",
-            "se lanza hacia adelante!",
-            "le pega suavemente!",
-            "ataca con precisión!",
-            "lanza un ataque brutal!"
-    };
-
-    public Attack(String name, int damage, double criticalChance) {
+    public Attack(String name, int damage, double criticalChance, String message) {
         this.name = name;
         this.damage = damage;
         this.criticalChance = criticalChance;
+        this.message = message;
     }
 
     @Override
@@ -39,9 +33,7 @@ public class Attack extends Ability {
 
         boolean critical = random.nextDouble() < criticalChance;
 
-        String message = attackMessages[random.nextInt(attackMessages.length)];
-
-        System.out.println("\n======= // ====== // =======");
+        System.out.println("\n======= // ====== // =======\n");
         System.out.println(user.name + " " + message);
         System.out.println(user.name + " usa " + name + "!");
 
